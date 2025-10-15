@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    float sum = 0;
+    for(int i = 0;i<n;i++){
+        sum += arr[i];
+    }
+    float mean = sum/n;
+    float median;
+    if(n%2==0){
+        median = (arr[n/2 - 1] + arr[n/2])/2.0;
+    }else{
+        median = arr[n/2];
+    }
+    int mode = arr[0];
+    int maxCount = 1;
+    int currentCount = 1;
+    for(int i = 1;i<n;i++){
+        if(arr[i]==arr[i-1]){
+            currentCount++;
+        }else{
+            if(currentCount > maxCount){
+                maxCount = currentCount;
+                mode = arr[i-1];
+            }
+            currentCount = 1;
+        }
+    }
+    if(currentCount > maxCount){
+        mode = arr[n - 1];
+    }
+    printf("%.2f %.2f %d\n",mean,median,mode);
+    return 0;
+}
