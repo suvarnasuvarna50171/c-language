@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n,m,zeroCount = 0;
+    scanf("%d %d",&n,&m);
+    int matrix[n][m];
+    for(int i = 0;i<n;i++){
+        for(int j = 0;j<m;j++){
+            scanf("%d",&matrix[i][j]);
+            if(matrix[i][j]==0){
+                zeroCount++;
+            }
+        }
+    } 
+    if (zeroCount > (n*m)/2){
+        printf("Yes\n");
+    } 
+    else{
+        printf("No\n");
+    } 
+    return 0;
+}
