@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int a,r,n;
+    scanf("%d %d %d",&a,&r,&n);
+    int nthTerm = a*(int)pow(r,n-1);
+    printf("%d\n",nthTerm);
+    return 0;
+}
