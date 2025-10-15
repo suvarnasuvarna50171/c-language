@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int countSetBits(unsigned int A) {
+    int count = 0;
+    while (A) {
+        count += A & 1;  // Check the last bit
+        A >>= 1;         // Shift right by 1
+    }
+    return count;
+}
+
+int main() {
+    unsigned int num;
+    scanf("%u", &num);
+    printf("%d\n", countSetBits(num));
+    return 0;
+}
