@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+    int N;
+    scanf("%d", &N);
+    char A[501], B[501];
+    scanf("%s %s", A, B);
+    char doubled [1002];
+    strcpy (doubled, B);
+    strcat (doubled, B);
+    if (strstr(doubled,A))
+    printf("yes\n");
+    else
+    printf("no\n");
+    return 0;
+}
