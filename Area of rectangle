@@ -1,0 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int64_t length,breadth;
+    scanf("%lld %lld",&length,&breadth);
+    printf("%lld\n",length * breadth);
+    return 0;
+}
