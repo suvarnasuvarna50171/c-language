@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char sentence[1000];
+    
+    // Input the sentence
+    fgets(sentence, sizeof(sentence), stdin);
+    
+    // Use strtok to split the sentence into words
+    char *word = strtok(sentence, " \n");
+    while (word != NULL) {
+        printf("%s\n", word);
+        word = strtok(NULL, " \n");
+    }
+    
+    return 0;
+}
