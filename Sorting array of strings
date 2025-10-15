@@ -1,0 +1,65 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+
+// Helper function to count distinct characters in a string
+int count_distinct_characters(const char* str) {
+    bool char_set[26] = {false};
+    int count = 0;
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (!char_set[str[i] - 'a']) {
+            char_set[str[i] - 'a'] = true;
+            count++;
+        }
+    }
+    return count;
+}
+
+// Comparison function for lexicographic sort
+int lexicographic_sort(const char* a, const char* b) {
+    return strcmp(a, b);
+}
+
+// Comparison function for reverse lexicographic sort
+int lexicographic_sort_reverse(const char* a, const char* b) {
+    return strcmp(b, a);
+}
+
+// Comparison function for sorting by number of distinct characters
+int sort_by_number_of_distinct_characters(const char* a, const char* b) {
+    int count_a = count_distinct_characters(a);
+    int count_b = count_distinct_characters(b);
+
+    if (count_a != count_b) {
+        return count_a - count_b;
+    }
+    return strcmp(a, b);
+}
+
+// Comparison function for sorting by length
+int sort_by_length(const char* a, const char* b) {
+    int len_a = strlen(a);
+    int len_b = strlen(b);
+
+    if (len_a != len_b) {
+        return len_a - len_b;
+    }
+    return strcmp(a, b);
+}
+
+// Generic string sort function
+void string_sort(const char** arr, const int cnt, int (*cmp_func)(const char* a, const char* b)) {
+    for (int i = 0; i < cnt - 1; i++) {
+        for (int j = 0; j < cnt - i - 1; j++) {
+            if (cmp_func(arr[j], arr[j + 1]) > 0) {
+                const char* temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+
