@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n;
+    scanf("%d",&n);
+    int i,j,k,l;
+    scanf("%d %d %d %d",&i,&j,&k,&l);
+    int matrix[n][n];
+    for(int row = 0;row<n;row++){
+        for(int col = 0;col < n;col++){
+            scanf("%d",&matrix[row][col]);
+        }
+    }  
+    int sum = 0;
+    for(int row = i;row<=k;row++){
+        for(int col = j;col<= l; col++){
+            sum += matrix[row][col];
+        }
+    }
+    printf("%d\n",sum);
+    return 0;
+}
